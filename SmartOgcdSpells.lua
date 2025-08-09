@@ -55,7 +55,7 @@ function CreateMacroses(spells, ogcdNames, spellsPage, macrosesPage, asGlobalMac
             for _, ogcdName in ipairs(ogcdNames) do
                 macroBody = macroBody .. "\n/cast " .. ogcdName
             end
-            macroBody = macroBody .. "\n/cast " .. spell.name
+            macroBody = macroBody .. "\n/cast !" .. spell.name
             macroBody = macroBody .. "\n/changeactionbar " .. spellsPage
 
             local macroName = GenerateMacroNamePrefix(ogcdNames) .. spell.id
@@ -87,10 +87,10 @@ end
 function UpsertMacro(macroName, macroBody, asGlobalMacro)
     local idx = GetMacroIndexByName(macroName)
     if idx == 0 then
-        idx = CreateMacro(macroName, 1, macroBody, ~asGlobalMacro)
+        idx = CreateMacro(macroName, 1, macroBody, not asGlobalMacro)
         print(addonName..": Created macro "..macroName)
     else
-        EditMacro(idx, nil, 1, macroBody, ~asGlobalMacro)
+        EditMacro(idx, nil, 1, macroBody, not asGlobalMacro)
         print(addonName..": Updated macro "..macroName)
     end
 end
