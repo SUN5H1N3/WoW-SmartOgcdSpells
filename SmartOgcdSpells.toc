@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: SmartOgcdSpells
+## Notes: SmartOgcdSpells
+## Author: Larteasy
+## Version: 1.0
+
+SmartOgcdSpells.lua
